@@ -7,7 +7,7 @@ on:
 jobs:
   publish:
     permissions:
-      id-token: write # This is required for requesting the JWT
+      id-token: write # This is required for requesting the JWTs
       contents: read
     runs-on: ubuntu-latest
     steps:
