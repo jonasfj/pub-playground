@@ -1,0 +1,21 @@
+name: publish
+
+on:
+  push:
+    tags: v.*
+
+jobs:
+  publish:
+    permissions:
+      id-token: write # This is required for requesting the JWT
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: publish to pub.dev
+        run: |
+          echo $(
+            curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=https://pub.dev" \
+            | base64
+          )
