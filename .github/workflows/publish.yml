@@ -1,7 +1,9 @@
 name: publish
 
-on: [push]
-
+on:
+  push:
+    tags:
+      - '*'
 jobs:
   publish:
     permissions:
