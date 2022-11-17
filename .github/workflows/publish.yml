@@ -9,6 +9,7 @@ jobs:
     permissions:
       id-token: write # This is required for requesting the JWT
       contents: read
+    environment: pub.dev
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
